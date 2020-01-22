@@ -117,6 +117,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox Text="Spiller 1"
                      BorderThickness="1"
@@ -125,6 +127,8 @@
                      FontSize="15"
                      Height="34"
                      Width="78"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Margin="46,0,242,778"
                      Grid.Column="1" />
             <TextBox Text="Spiller 2"
@@ -134,6 +138,8 @@
                      FontSize="15"
                      Height="34"
                      Width="78"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Margin="124,0,164,778"
                      Grid.Column="1" />
             <TextBox Text="Spiller 3"
@@ -143,6 +149,8 @@
                      FontSize="15"
                      Height="34"
                      Width="78"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Margin="202,0,86,778"
                      Grid.Column="1" />
             <TextBox Text="Spiller 4"
@@ -152,6 +160,8 @@
                      FontSize="15"
                      Height="34"
                      Width="78"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Margin="280,0,8,778"
                      Grid.Column="1" />
             <TextBox HorizontalAlignment="Left"
@@ -164,6 +174,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,68,0,0"
@@ -175,6 +187,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,102,0,0"
@@ -186,6 +200,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,170,0,0"
@@ -197,6 +213,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,136,0,0"
@@ -208,6 +226,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,204,0,0"
@@ -219,6 +239,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,271,0,0"
@@ -230,6 +252,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,237,0,0"
@@ -241,6 +265,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,339,0,0"
@@ -252,6 +278,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,305,0,0"
@@ -263,6 +291,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,407,0,0"
@@ -274,6 +304,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,373,0,0"
@@ -285,6 +317,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,441,0,0"
@@ -296,6 +330,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,475,0,0"
@@ -307,6 +343,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,509,0,0"
@@ -318,6 +356,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,543,0,0"
@@ -329,6 +369,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,577,0,0"
@@ -340,6 +382,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,611,0,0"
@@ -351,6 +395,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,645,0,0"
@@ -362,6 +408,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,679,0,0"
@@ -373,6 +421,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,713,0,0"
@@ -384,6 +434,8 @@
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
+                     Background="LightGray"
+                     IsReadOnly="True"
                      Grid.ColumnSpan="2" />
             <TextBox Text=""
                      BorderThickness="1"
