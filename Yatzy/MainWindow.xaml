@@ -257,7 +257,7 @@
                      Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
                      Margin="0,237,0,0"
-                     Text="Sum for opnåelse af bonus          84"
+                     Text="Sum for opnåelse af bonus                 84"
                      BorderThickness="1"
                      BorderBrush="Black"
                      TextWrapping="Wrap"
@@ -417,7 +417,7 @@
                      BorderThickness="1"
                      BorderBrush="Black"
                      TextWrapping="Wrap"
-                     FontSize="12.5"
+                     FontSize="13"
                      VerticalAlignment="Top"
                      Height="34"
                      Width="122"
