@@ -24,5 +24,10 @@ namespace Yatzy
         {
             InitializeComponent();
         }
+
+        private void RollDices(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

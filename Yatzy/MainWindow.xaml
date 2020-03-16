@@ -9,7 +9,8 @@
         Height="775"
         Width="1200">
     <Grid>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice1"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="59,166,0,0"
                    Stroke="Black"
@@ -19,7 +20,8 @@
                 <ImageBrush ImageSource="C:\tilyatzy\4.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice2"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="199,166,0,0"
                    Stroke="Black"
@@ -29,7 +31,8 @@
                 <ImageBrush ImageSource="C:\tilyatzy\6.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice3"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="199,96,0,0"
                    Stroke="Black"
@@ -39,7 +42,8 @@
                 <ImageBrush ImageSource="C:\tilyatzy\3.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice4"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="129,166,0,0"
                    Stroke="Black"
@@ -49,7 +53,8 @@
                 <ImageBrush ImageSource="C:\tilyatzy\5.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice5"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="129,96,0,0"
                    Stroke="Black"
@@ -59,7 +64,8 @@
                 <ImageBrush ImageSource="C:\tilyatzy\2.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left"
+        <Rectangle x:Name="dice6"
+                   HorizontalAlignment="Left"
                    Height="65"
                    Margin="59,96,0,0"
                    VerticalAlignment="Top"
@@ -71,34 +77,41 @@
                 <ImageBrush ImageSource="C:\tilyatzy\1.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox1"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="73,76,0,0"
                   VerticalAlignment="Top" />
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox2"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="142,76,0,0"
                   VerticalAlignment="Top" />
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox3"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="213,76,0,0"
                   VerticalAlignment="Top" />
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox4"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="73,239,0,0"
                   VerticalAlignment="Top" />
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox5"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="142,239,0,0"
                   VerticalAlignment="Top" />
-        <CheckBox Content="Lås"
+        <CheckBox x:Name="checkBox6"
+                  Content="Lås"
                   HorizontalAlignment="Left"
                   Margin="213,239,0,0"
                   VerticalAlignment="Top" />
-        <Button Content="Slå Terningerne"
+        <Button x:Name="buttonRollDices" Content="Slå Terningerne"
                 HorizontalAlignment="Left"
                 Margin="118,292,0,0"
-                VerticalAlignment="Top" />
+                VerticalAlignment="Top"
+                Click="RollDices" />
         <Grid HorizontalAlignment="Left"
               Height="812"
               Margin="748,10,0,0"
