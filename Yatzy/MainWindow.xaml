@@ -12,23 +12,25 @@
         <Rectangle x:Name="dice1"
                    HorizontalAlignment="Left"
                    Height="65"
-                   Margin="59,166,0,0"
-                   Stroke="Black"
+                   Margin="59,96,0,0"
                    VerticalAlignment="Top"
                    Width="65">
+            <Rectangle.Stroke>
+                <ImageBrush ImageSource="C:\tilyatzy\1.bmp" />
+            </Rectangle.Stroke>
             <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\tilyatzy\4.bmp" />
+                <ImageBrush ImageSource="C:\tilyatzy\1.bmp" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="dice2"
                    HorizontalAlignment="Left"
                    Height="65"
-                   Margin="199,166,0,0"
+                   Margin="129,96,0,0"
                    Stroke="Black"
                    VerticalAlignment="Top"
                    Width="65">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\tilyatzy\6.bmp" />
+                <ImageBrush ImageSource="C:\tilyatzy\2.bmp" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="dice3"
@@ -45,6 +47,17 @@
         <Rectangle x:Name="dice4"
                    HorizontalAlignment="Left"
                    Height="65"
+                   Margin="59,166,0,0"
+                   Stroke="Black"
+                   VerticalAlignment="Top"
+                   Width="65">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="C:\tilyatzy\4.bmp" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="dice5"
+                   HorizontalAlignment="Left"
+                   Height="65"
                    Margin="129,166,0,0"
                    Stroke="Black"
                    VerticalAlignment="Top"
@@ -53,28 +66,15 @@
                 <ImageBrush ImageSource="C:\tilyatzy\5.bmp" />
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="dice5"
+        <Rectangle x:Name="dice6"
                    HorizontalAlignment="Left"
                    Height="65"
-                   Margin="129,96,0,0"
+                   Margin="199,166,0,0"
                    Stroke="Black"
                    VerticalAlignment="Top"
                    Width="65">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\tilyatzy\2.bmp" />
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle x:Name="dice6"
-                   HorizontalAlignment="Left"
-                   Height="65"
-                   Margin="59,96,0,0"
-                   VerticalAlignment="Top"
-                   Width="65">
-            <Rectangle.Stroke>
-                <ImageBrush ImageSource="C:\tilyatzy\1.bmp" />
-            </Rectangle.Stroke>
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="C:\tilyatzy\1.bmp" />
+                <ImageBrush ImageSource="C:\tilyatzy\6.bmp" />
             </Rectangle.Fill>
         </Rectangle>
         <CheckBox x:Name="checkBox1"
@@ -107,11 +107,12 @@
                   HorizontalAlignment="Left"
                   Margin="213,239,0,0"
                   VerticalAlignment="Top" />
-        <Button x:Name="buttonRollDices" Content="Slå Terningerne"
+        <Button x:Name="buttonRollDices"
+                Content="Slå Terningerne"
                 HorizontalAlignment="Left"
                 Margin="118,292,0,0"
                 VerticalAlignment="Top"
-                Click="RollDices" />
+                Click="buttonRollDices_Click" />
         <Grid HorizontalAlignment="Left"
               Height="812"
               Margin="748,10,0,0"
@@ -1227,8 +1228,6 @@
                      Margin="280,713,8,65"
                      RenderTransformOrigin="1.746,0.901"
                      Grid.Column="1" />
-
         </Grid>
-
     </Grid>
 </Window>

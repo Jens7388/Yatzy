@@ -25,9 +25,61 @@ namespace Yatzy
             InitializeComponent();
         }
 
-        private void RollDices(object sender, RoutedEventArgs e)
+        private void buttonRollDices_Click(object sender, RoutedEventArgs e)
         {
-
+            RollDice(dice1, checkBox1);
+            RollDice(dice2, checkBox2);
+            RollDice(dice3, checkBox3);
+            RollDice(dice4, checkBox4);
+            RollDice(dice5, checkBox5);
+            RollDice(dice6, checkBox6);
+        }
+        private void RollDice(Rectangle dice, CheckBox checkBox)
+        {
+            Random diceRoll = new Random();
+            if(checkBox.IsChecked == false)
+            {
+                int diceRollResult = diceRoll.Next(1, 7);
+                switch(diceRollResult)
+                {
+                    case 1:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\1.bmp"))
+                        };
+                        break;
+                    case 2:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\2.bmp"))
+                        };
+                        break;
+                    case 3:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\3.bmp"))
+                        };
+                        break;
+                    case 4:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\4.bmp"))
+                        };
+                        break;
+                    case 5:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\5.bmp"))
+                        };
+                        break;
+                    case 6:
+                        dice.Fill = new ImageBrush
+                        {
+                            ImageSource = new BitmapImage(new Uri(@"C:\tilyatzy\6.bmp"))
+                        };
+                        break;
+                }
+            }
         }
     }
 }
