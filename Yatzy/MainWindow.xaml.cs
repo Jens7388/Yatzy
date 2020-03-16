@@ -81,5 +81,15 @@ namespace Yatzy
                 }
             }
         }
+
+        private void buttonUncheckCheckboxes_Click(object sender, RoutedEventArgs e)
+        {
+            checkBox1.IsChecked = false;
+            checkBox2.IsChecked = false;
+            checkBox3.IsChecked = false;
+            checkBox4.IsChecked = false;
+            checkBox5.IsChecked = false;
+            checkBox6.IsChecked = false;
+        }
     }
 }

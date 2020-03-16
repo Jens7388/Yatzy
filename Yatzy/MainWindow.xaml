@@ -110,9 +110,15 @@
         <Button x:Name="buttonRollDices"
                 Content="Slå Terningerne"
                 HorizontalAlignment="Left"
-                Margin="118,292,0,0"
+                Margin="59,287,0,0"
                 VerticalAlignment="Top"
                 Click="buttonRollDices_Click" />
+        <Button x:Name="buttonUncheckCheckboxes"
+                Content="Fjern alle låsninger"
+                HorizontalAlignment="Left"
+                Margin="162,287,0,0"
+                VerticalAlignment="Top"
+                Click="buttonUncheckCheckboxes_Click" />
         <Grid HorizontalAlignment="Left"
               Height="812"
               Margin="748,10,0,0"
@@ -1229,7 +1235,7 @@
                      Margin="280,713,8,65"
                      RenderTransformOrigin="1.746,0.901"
                      Grid.Column="1" />
-                <!--#endregion-->
+            <!--#endregion-->
         </Grid>
     </Grid>
 </Window>
