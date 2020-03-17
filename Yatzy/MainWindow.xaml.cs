@@ -22,7 +22,7 @@ namespace Yatzy
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void buttonRollDices_Click(object sender, RoutedEventArgs e)
@@ -95,7 +95,24 @@ namespace Yatzy
         private void buttonCalculatePointsP1_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
+            int.TryParse(acesPlayer1.Text, out int aces);
+            int.TryParse(twosPlayer1.Text, out int twos);
+            int.TryParse(threesPlayer1.Text, out int threes);
+            int.TryParse(foursPlayer1.Text, out int fours);
+            int.TryParse(fivesPlayer1.Text, out int fives);
+            int.TryParse(sixesPlayer1.Text, out int sixes);
+            sumPlayer1.Text = (aces + twos + threes + fours + fives + sixes).ToString();
             int.TryParse(sumPlayer1.Text, out int sum);
+
+            if(sum >= 84) 
+            {
+                bonusPlayer1.Text = "50";
+            }
+            else
+            {
+                bonusPlayer1.Text = "";
+            }
+
             int.TryParse(bonusPlayer1.Text, out int bonus);
             int.TryParse(onePairPlayer1.Text, out int onePair);
             int.TryParse(twoPairsPlayer1.Text, out int twoPairs);
@@ -118,7 +135,24 @@ namespace Yatzy
         private void buttonCalculatePointsP2_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
+            int.TryParse(acesPlayer2.Text, out int aces);
+            int.TryParse(twosPlayer2.Text, out int twos);
+            int.TryParse(threesPlayer2.Text, out int threes);
+            int.TryParse(foursPlayer2.Text, out int fours);
+            int.TryParse(fivesPlayer2.Text, out int fives);
+            int.TryParse(sixesPlayer2.Text, out int sixes);
+            sumPlayer2.Text = (aces + twos + threes + fours + fives + sixes).ToString();
             int.TryParse(sumPlayer2.Text, out int sum);
+
+            if(sum >= 84)
+            {
+                bonusPlayer2.Text = "50";
+            }
+            else
+            {
+                bonusPlayer2.Text = "";
+            }
+
             int.TryParse(bonusPlayer2.Text, out int bonus);
             int.TryParse(onePairPlayer2.Text, out int onePair);
             int.TryParse(twoPairsPlayer2.Text, out int twoPairs);
@@ -140,8 +174,25 @@ namespace Yatzy
         private void buttonCalculatePointsP3_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
+            int.TryParse(acesPlayer3.Text, out int aces);
+            int.TryParse(twosPlayer3.Text, out int twos);
+            int.TryParse(threesPlayer3.Text, out int threes);
+            int.TryParse(foursPlayer3.Text, out int fours);
+            int.TryParse(fivesPlayer3.Text, out int fives);
+            int.TryParse(sixesPlayer3.Text, out int sixes);
+            sumPlayer3.Text = (aces + twos + threes + fours + fives + sixes).ToString();
             int.TryParse(sumPlayer3.Text, out int sum);
-            int.TryParse(bonusPlayer3.Text, out int bonus);
+
+            if(sum >= 84)
+            {
+                bonusPlayer3.Text = "50";
+            }
+            else
+            {
+                bonusPlayer3.Text = "";
+            }
+
+            int.TryParse(bonusPlayer3.Text, out int bonus);            
             int.TryParse(onePairPlayer3.Text, out int onePair);
             int.TryParse(twoPairsPlayer3.Text, out int twoPairs);
             int.TryParse(threePairsPlayer3.Text, out int threePairs);
@@ -162,7 +213,24 @@ namespace Yatzy
         private void buttonCalculatePointsP4_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
+            int.TryParse(acesPlayer4.Text, out int aces);
+            int.TryParse(twosPlayer4.Text, out int twos);
+            int.TryParse(threesPlayer4.Text, out int threes);
+            int.TryParse(foursPlayer4.Text, out int fours);
+            int.TryParse(fivesPlayer4.Text, out int fives);
+            int.TryParse(sixesPlayer4.Text, out int sixes);
+            sumPlayer4.Text = (aces + twos + threes + fours + fives + sixes).ToString();
             int.TryParse(sumPlayer4.Text, out int sum);
+
+            if(sum >= 84)
+            {
+                bonusPlayer4.Text = "50";
+            }
+            else
+            {
+                bonusPlayer4.Text = "";
+            }
+
             int.TryParse(bonusPlayer4.Text, out int bonus);
             int.TryParse(onePairPlayer4.Text, out int onePair);
             int.TryParse(twoPairsPlayer4.Text, out int twoPairs);
@@ -179,6 +247,17 @@ namespace Yatzy
             totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
                 twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
             totalPointsPlayer4.Text = totalPoints.ToString();
+        }
+
+        private void buttonNullifyScoreBlock_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(TextBox textBox in gridScoreBlock.Children.OfType<TextBox>())
+            {
+                if((((SolidColorBrush)textBox.Background).Color != Colors.LightGray))
+                {
+                    textBox.Text = "";
+                }
+            }
         }
     }
 }
