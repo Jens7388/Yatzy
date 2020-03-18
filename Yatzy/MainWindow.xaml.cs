@@ -253,10 +253,26 @@ namespace Yatzy
         {
             foreach(TextBox textBox in gridScoreBlock.Children.OfType<TextBox>())
             {
-                if((((SolidColorBrush)textBox.Background).Color != Colors.LightGray))
+                if(((SolidColorBrush)textBox.Background).Color != Colors.LightGray)
                 {
                     textBox.Text = "";
                 }
+            }
+        }
+
+        private void ComboBoxSelectNoUfPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            startGame.IsEnabled = true;
+        }
+
+        private void startGame_Click(object sender, RoutedEventArgs e)
+        {
+            int numberOfPlayers = 0;
+            if(ComboBoxSelectNoUfPlayers.SelectedItem == testMode) 
+            {
+                menuBorder.BorderThickness = new Thickness(0);
+                menu.Visibility = Visibility.Hidden;
+                gridYatzy.IsEnabled = true;
             }
         }
     }
