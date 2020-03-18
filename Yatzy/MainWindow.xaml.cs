@@ -22,7 +22,7 @@ namespace Yatzy
     {
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void buttonRollDices_Click(object sender, RoutedEventArgs e)
@@ -104,7 +104,7 @@ namespace Yatzy
             sumPlayer1.Text = (aces + twos + threes + fours + fives + sixes).ToString();
             int.TryParse(sumPlayer1.Text, out int sum);
 
-            if(sum >= 84) 
+            if(sum >= 84)
             {
                 bonusPlayer1.Text = "50";
             }
@@ -126,9 +126,9 @@ namespace Yatzy
             int.TryParse(fullHousePlayer1.Text, out int fullHouse);
             int.TryParse(chancePlayer1.Text, out int chance);
             int.TryParse(yatzyPlayer1.Text, out int yatzy);
-            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind + 
+            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
                 twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
-            totalPointsPlayer1.Text = totalPoints.ToString(); 
+            totalPointsPlayer1.Text = totalPoints.ToString();
 
         }
 
@@ -192,7 +192,7 @@ namespace Yatzy
                 bonusPlayer3.Text = "";
             }
 
-            int.TryParse(bonusPlayer3.Text, out int bonus);            
+            int.TryParse(bonusPlayer3.Text, out int bonus);
             int.TryParse(onePairPlayer3.Text, out int onePair);
             int.TryParse(twoPairsPlayer3.Text, out int twoPairs);
             int.TryParse(threePairsPlayer3.Text, out int threePairs);
@@ -264,14 +264,99 @@ namespace Yatzy
         {
             startGame.IsEnabled = true;
         }
-
+        int numberOfPlayers;
         private void startGame_Click(object sender, RoutedEventArgs e)
         {
-            int numberOfPlayers = 0;
-            if(ComboBoxSelectNoUfPlayers.SelectedItem == testMode) 
+
+            if(ComboBoxSelectNoUfPlayers.SelectedItem == testMode)
             {
                 menuBorder.BorderThickness = new Thickness(0);
                 menu.Visibility = Visibility.Hidden;
+                gridYatzy.IsEnabled = true;
+            }
+            else if(ComboBoxSelectNoUfPlayers.SelectedItem == twoPlayers)
+            {
+                numberOfPlayers = 2;
+                menu.Visibility = Visibility.Hidden;
+                playerNameMenu.Visibility = Visibility.Visible;
+            }
+            else if(ComboBoxSelectNoUfPlayers.SelectedItem == threePlayers)
+            {
+                numberOfPlayers = 3;
+                menu.Visibility = Visibility.Hidden;
+                playerNameMenu.Visibility = Visibility.Visible;
+            }
+            else if(ComboBoxSelectNoUfPlayers.SelectedItem == fourPlayers)
+            {
+                numberOfPlayers = 4;
+                menu.Visibility = Visibility.Hidden;
+                playerNameMenu.Visibility = Visibility.Visible;
+            }
+        }
+        int playerNamesTypedIn = 0;
+        private void buttonPlayerNameInput_Click(object sender, RoutedEventArgs e)
+        {         
+            if(playerNamesTypedIn == 0)
+            {
+                if(playerNameInput.Text != "")
+                {
+                    player1Name.Text = playerNameInput.Text;                    
+                    playerNameInput.Text = "";
+                    playerNamesTypedIn++;
+                }
+            }
+            if(playerNamesTypedIn == 1)
+            {
+                textBlockPlayerNumber.Text = "Indtast spiller 2's navn:";
+                if(playerNameInput.Text != "")
+                {
+                    player2Name.Text = playerNameInput.Text;
+                    playerNameInput.Text = "";
+                    playerNamesTypedIn++;
+                }
+            }
+            if(numberOfPlayers == 3)
+            {
+                if(playerNamesTypedIn == 2)
+                {
+                    textBlockPlayerNumber.Text = "Indtast spiller 3's navn:";
+                    if(playerNameInput.Text != "")
+                    {
+                        player3Name.Text = playerNameInput.Text;
+                        menuBorder.BorderThickness = new Thickness(0);
+                        playerNameMenu.Visibility = Visibility.Hidden;
+                        gridYatzy.IsEnabled = true;
+                    }
+                }
+            }
+            else if(numberOfPlayers == 4)
+            {
+                if(playerNamesTypedIn == 2)
+                {
+                    textBlockPlayerNumber.Text = "Indtast spiller 3's navn:";
+                    if(playerNameInput.Text != "")
+                    {
+                        player3Name.Text = playerNameInput.Text;
+                        playerNameInput.Text = "";
+                        playerNamesTypedIn++;
+                    }
+                }
+                if(playerNamesTypedIn == 3)
+                {
+                    textBlockPlayerNumber.Text = "Indtast spiller 4's navn:";
+                    if(playerNameInput.Text != "")
+                    {
+                        player4Name.Text = playerNameInput.Text;
+                        menuBorder.BorderThickness = new Thickness(0);
+                        playerNameMenu.Visibility = Visibility.Hidden;
+                        gridYatzy.IsEnabled = true;
+                    }
+                }
+            }
+            else if(numberOfPlayers < 3 && playerNamesTypedIn == 2)
+            {
+                menuBorder.BorderThickness = new Thickness(0);
+                playerNameMenu.Visibility = Visibility.Hidden;
                 gridYatzy.IsEnabled = true;
             }
         }

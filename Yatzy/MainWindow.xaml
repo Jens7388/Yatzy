@@ -9,8 +9,11 @@
         Height="795"
         Width="1200">
     <Grid>
-        <Border  x:Name="menuBorder"  Height="160" Width="180" BorderThickness="2"
-                BorderBrush="Black">
+        <Border  x:Name="menuBorder"
+                 Height="160"
+                 Width="180"
+                 BorderThickness="2"
+                 BorderBrush="Black">
             <StackPanel Height="150"
                         x:Name="menu"
                         Width="170">
@@ -19,20 +22,39 @@
                            Margin="0,0,0,15" />
                 <ComboBox x:Name="ComboBoxSelectNoUfPlayers"
                           SelectionChanged="ComboBoxSelectNoUfPlayers_SelectionChanged">
-                    <ComboBoxItem x:Name="testMode" Content="Test mode" />
-                    <ComboBoxItem x:Name="twoPlayers" Content="2" />
-                    <ComboBoxItem x:Name="threePlayers" Content="3" />
-                    <ComboBoxItem x:Name="fourPlayers" Content="4" />
+                    <ComboBoxItem x:Name="testMode"
+                                  Content="Test mode" />
+                    <ComboBoxItem x:Name="twoPlayers"
+                                  Content="2" />
+                    <ComboBoxItem x:Name="threePlayers"
+                                  Content="3" />
+                    <ComboBoxItem x:Name="fourPlayers"
+                                  Content="4" />
                 </ComboBox>
                 <Button x:Name="startGame"
                         Content="Videre"
                         IsEnabled="False"
                         Margin="0,70,0,0"
-                        Click="startGame_Click"
-                        />
+                        Click="startGame_Click" />
             </StackPanel>
         </Border>
-        <Grid x:Name="gridYatzy" IsEnabled="False">
+        <StackPanel Height="150"
+                    x:Name="playerNameMenu"
+                    Visibility="Hidden"
+                    Width="170">
+            <TextBlock x:Name="textBlockPlayerNumber"
+                       Text="Indtast spiller 1's navn:"
+                       FontSize="15"
+                       Margin="0,0,0,15" />
+            <TextBox x:Name="playerNameInput"/>
+            <Button x:Name="buttonPlayerNameInput"
+                    Content="Videre"
+                    Margin="0,70,0,0"
+                    Click="buttonPlayerNameInput_Click" />
+        </StackPanel>
+
+        <Grid x:Name="gridYatzy"
+              IsEnabled="False">
             <Rectangle x:Name="dice1"
                        HorizontalAlignment="Left"
                        Height="65"
@@ -166,7 +188,8 @@
                          Background="LightGray"
                          IsReadOnly="True"
                          Grid.ColumnSpan="2" />
-                <TextBox Text="Spiller 1"
+                <TextBox x:Name="player1Name"
+                         Text="Spiller 1"
                          BorderThickness="1"
                          BorderBrush="Black"
                          TextWrapping="Wrap"
@@ -177,7 +200,8 @@
                          IsReadOnly="True"
                          Margin="46,0,242,778"
                          Grid.Column="1" />
-                <TextBox Text="Spiller 2"
+                <TextBox x:Name="player2Name"
+                         Text="Spiller 2"
                          BorderThickness="1"
                          BorderBrush="Black"
                          TextWrapping="Wrap"
@@ -188,7 +212,8 @@
                          IsReadOnly="True"
                          Margin="124,0,164,778"
                          Grid.Column="1" />
-                <TextBox Text="Spiller 3"
+                <TextBox x:Name="player3Name"
+                         Text="Spiller 3"
                          BorderThickness="1"
                          BorderBrush="Black"
                          TextWrapping="Wrap"
@@ -199,7 +224,8 @@
                          IsReadOnly="True"
                          Margin="202,0,86,778"
                          Grid.Column="1" />
-                <TextBox Text="Spiller 4"
+                <TextBox x:Name="player4Name"
+                         Text="Spiller 4"
                          BorderThickness="1"
                          BorderBrush="Black"
                          TextWrapping="Wrap"
