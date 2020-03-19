@@ -25,14 +25,24 @@ namespace Yatzy
             InitializeComponent();
         }
 
+        int diceRolls = 0;
         private void buttonRollDices_Click(object sender, RoutedEventArgs e)
         {
-            RollDice(dice1, checkBox1);
-            RollDice(dice2, checkBox2);
-            RollDice(dice3, checkBox3);
-            RollDice(dice4, checkBox4);
-            RollDice(dice5, checkBox5);
-            RollDice(dice6, checkBox6);
+            diceRolls++;            
+            if(diceRolls < 4)
+            {
+                RollDice(dice1, checkBox1);
+                RollDice(dice2, checkBox2);
+                RollDice(dice3, checkBox3);
+                RollDice(dice4, checkBox4);
+                RollDice(dice5, checkBox5);
+                RollDice(dice6, checkBox6);
+                buttonEndTurn.IsEnabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Du må ikke slå terningerne mere end 3 gange! Afslut din tur.");
+            }
         }
         private void RollDice(Rectangle dice, CheckBox checkBox)
         {
@@ -295,12 +305,12 @@ namespace Yatzy
         }
         int playerNamesTypedIn = 0;
         private void buttonPlayerNameInput_Click(object sender, RoutedEventArgs e)
-        {         
+        {
             if(playerNamesTypedIn == 0)
             {
                 if(playerNameInput.Text != "")
                 {
-                    player1Name.Text = playerNameInput.Text;                    
+                    player1Name.Text = playerNameInput.Text;
                     playerNameInput.Text = "";
                     playerNamesTypedIn++;
                 }
@@ -326,6 +336,7 @@ namespace Yatzy
                         menuBorder.BorderThickness = new Thickness(0);
                         playerNameMenu.Visibility = Visibility.Hidden;
                         gridYatzy.IsEnabled = true;
+                        textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
                     }
                 }
             }
@@ -350,6 +361,7 @@ namespace Yatzy
                         menuBorder.BorderThickness = new Thickness(0);
                         playerNameMenu.Visibility = Visibility.Hidden;
                         gridYatzy.IsEnabled = true;
+                        textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
                     }
                 }
             }
@@ -358,6 +370,32 @@ namespace Yatzy
                 menuBorder.BorderThickness = new Thickness(0);
                 playerNameMenu.Visibility = Visibility.Hidden;
                 gridYatzy.IsEnabled = true;
+                textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+            }
+        }
+
+        int currPlayerTurn = 1;
+        private void buttonEndTurn_Click(object sender, RoutedEventArgs e)
+        {
+            diceRolls = 0;
+            buttonEndTurn.IsEnabled = false;
+            currPlayerTurn++;
+            if(currPlayerTurn == 2) 
+            {
+                textBlockCurrentTurn.Text = $"{player2Name.Text}'s tur";
+            }
+            else if(numberOfPlayers >= 3 && currPlayerTurn == 3) 
+            {
+                textBlockCurrentTurn.Text = $"{player3Name.Text}'s tur";
+            }
+            else if(numberOfPlayers == 4 && currPlayerTurn == 4) 
+            {
+                textBlockCurrentTurn.Text = $"{player4Name.Text}'s tur";
+            }
+            else
+            { 
+                currPlayerTurn = 1;
+                textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
             }
         }
     }

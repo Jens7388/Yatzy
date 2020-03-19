@@ -46,7 +46,7 @@
                        Text="Indtast spiller 1's navn:"
                        FontSize="15"
                        Margin="0,0,0,15" />
-            <TextBox x:Name="playerNameInput"/>
+            <TextBox x:Name="playerNameInput" />
             <Button x:Name="buttonPlayerNameInput"
                     Content="Videre"
                     Margin="0,70,0,0"
@@ -165,6 +165,29 @@
                     Margin="162,287,0,0"
                     VerticalAlignment="Top"
                     Click="buttonUncheckCheckboxes_Click" />
+            <Button x:Name="buttonEndTurn"
+                    Content="Afslut tur"
+                    HorizontalAlignment="Left"
+                    Margin="162,321,0,0"
+                    VerticalAlignment="Top"
+                    IsEnabled="False"
+                    Width="103"
+                    Click="buttonEndTurn_Click" />
+            <Button x:Name="buttonNullifyScoreBlock"
+                    Content="Nulstil blok"
+                    HorizontalAlignment="Left"
+                    Margin="59,321,0,0"
+                    VerticalAlignment="Top"
+                    Width="82"
+                    Click="buttonNullifyScoreBlock_Click" />
+            <TextBlock x:Name='textBlockCurrentTurn'
+                       HorizontalAlignment="Left"
+                       Margin="342,10,0,0"
+                       FontSize="35"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Height="118"
+                       Width="360" />
             <Grid x:Name="gridScoreBlock"
                   HorizontalAlignment="Left"
                   Height="812"
@@ -1433,13 +1456,6 @@
                         Click="buttonCalculatePointsP4_Click" />
                 <!--#endregion-->
             </Grid>
-            <Button x:Name="buttonNullifyScoreBlock"
-                    Content="Nulstil blok"
-                    HorizontalAlignment="Left"
-                    Margin="59,321,0,0"
-                    VerticalAlignment="Top"
-                    Width="82"
-                    Click="buttonNullifyScoreBlock_Click" />
         </Grid>
     </Grid>
 </Window>
