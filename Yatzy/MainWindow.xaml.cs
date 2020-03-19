@@ -24,8 +24,12 @@ namespace Yatzy
         {
             InitializeComponent();
         }
-
+        int currPlayerTurn = 1;
+        int rounds = 0;
         int diceRolls = 0;
+        int numberOfPlayers;
+        int playerNamesTypedIn = 0;
+
         private void buttonRollDices_Click(object sender, RoutedEventArgs e)
         {
             diceRolls++;
@@ -113,161 +117,120 @@ namespace Yatzy
         private void buttonCalculatePointsP1_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
-            int.TryParse(acesPlayer1.Text, out int aces);
-            int.TryParse(twosPlayer1.Text, out int twos);
-            int.TryParse(threesPlayer1.Text, out int threes);
-            int.TryParse(foursPlayer1.Text, out int fours);
-            int.TryParse(fivesPlayer1.Text, out int fives);
-            int.TryParse(sixesPlayer1.Text, out int sixes);
-            sumPlayer1.Text = (aces + twos + threes + fours + fives + sixes).ToString();
-            int.TryParse(sumPlayer1.Text, out int sum);
+            int sum = 0;
 
-            if(sum >= 84)
+            foreach(TextBox textbox in pointsPlayer1.Children.OfType<TextBox>())
             {
-                bonusPlayer1.Text = "50";
+                int.TryParse(textbox.Text, out int points);
+                if(textbox == acesPlayer1 || textbox == twosPlayer1 || textbox == threesPlayer1 || textbox == foursPlayer1 || textbox == fivesPlayer1 || textbox == sixesPlayer1) 
+                {
+                    sum += points;
+                    if(sum >= 84)
+                    {
+                        bonusPlayer1.Text = "50";
+                    }
+                    else
+                    {
+                        bonusPlayer1.Text = "";
+                    }
+                }
+                if(textbox != sumPlayer1 && textbox != totalPointsPlayer1)
+                {
+                    totalPoints += points;
+                }
             }
-            else
-            {
-                bonusPlayer1.Text = "";
-            }
-
-            int.TryParse(bonusPlayer1.Text, out int bonus);
-            int.TryParse(onePairPlayer1.Text, out int onePair);
-            int.TryParse(twoPairsPlayer1.Text, out int twoPairs);
-            int.TryParse(threePairsPlayer1.Text, out int threePairs);
-            int.TryParse(threeOfAKindPlayer1.Text, out int threeOfAKind);
-            int.TryParse(fourOfAKindPlayer1.Text, out int fourOfAKind);
-            int.TryParse(twoXThreeOfAKindPlayer1.Text, out int twoXThreeOfAKind);
-            int.TryParse(smallStraightPlayer1.Text, out int smallStraight);
-            int.TryParse(largeStraightPlayer1.Text, out int largeStraight);
-            int.TryParse(royalStraightPlayer1.Text, out int royalStraight);
-            int.TryParse(fullHousePlayer1.Text, out int fullHouse);
-            int.TryParse(chancePlayer1.Text, out int chance);
-            int.TryParse(yatzyPlayer1.Text, out int yatzy);
-            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
-                twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
+            sumPlayer1.Text = sum.ToString();
             totalPointsPlayer1.Text = totalPoints.ToString();
-
         }
 
         private void buttonCalculatePointsP2_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
-            int.TryParse(acesPlayer2.Text, out int aces);
-            int.TryParse(twosPlayer2.Text, out int twos);
-            int.TryParse(threesPlayer2.Text, out int threes);
-            int.TryParse(foursPlayer2.Text, out int fours);
-            int.TryParse(fivesPlayer2.Text, out int fives);
-            int.TryParse(sixesPlayer2.Text, out int sixes);
-            sumPlayer2.Text = (aces + twos + threes + fours + fives + sixes).ToString();
-            int.TryParse(sumPlayer2.Text, out int sum);
+            int sum = 0;
 
-            if(sum >= 84)
+            foreach(TextBox textbox in pointsPlayer2.Children.OfType<TextBox>())
             {
-                bonusPlayer2.Text = "50";
+                int.TryParse(textbox.Text, out int points);
+                if(textbox == acesPlayer2 || textbox == twosPlayer2 || textbox == threesPlayer2 || textbox == foursPlayer2 || textbox == fivesPlayer2 || textbox == sixesPlayer2)
+                {
+                    sum += points;
+                    if(sum >= 84)
+                    {
+                        bonusPlayer2.Text = "50";
+                    }
+                    else
+                    {
+                        bonusPlayer2.Text = "";
+                    }
+                }
+                if(textbox != sumPlayer2 && textbox != totalPointsPlayer2)
+                {
+                    totalPoints += points;
+                }
             }
-            else
-            {
-                bonusPlayer2.Text = "";
-            }
-
-            int.TryParse(bonusPlayer2.Text, out int bonus);
-            int.TryParse(onePairPlayer2.Text, out int onePair);
-            int.TryParse(twoPairsPlayer2.Text, out int twoPairs);
-            int.TryParse(threePairsPlayer2.Text, out int threePairs);
-            int.TryParse(threeOfAKindPlayer2.Text, out int threeOfAKind);
-            int.TryParse(fourOfAKindPlayer2.Text, out int fourOfAKind);
-            int.TryParse(twoXThreeOfAKindPlayer2.Text, out int twoXThreeOfAKind);
-            int.TryParse(smallStraightPlayer2.Text, out int smallStraight);
-            int.TryParse(largeStraightPlayer2.Text, out int largeStraight);
-            int.TryParse(royalStraightPlayer2.Text, out int royalStraight);
-            int.TryParse(fullHousePlayer2.Text, out int fullHouse);
-            int.TryParse(chancePlayer2.Text, out int chance);
-            int.TryParse(yatzyPlayer2.Text, out int yatzy);
-            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
-                twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
+            sumPlayer2.Text = sum.ToString();
             totalPointsPlayer2.Text = totalPoints.ToString();
         }
 
         private void buttonCalculatePointsP3_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
-            int.TryParse(acesPlayer3.Text, out int aces);
-            int.TryParse(twosPlayer3.Text, out int twos);
-            int.TryParse(threesPlayer3.Text, out int threes);
-            int.TryParse(foursPlayer3.Text, out int fours);
-            int.TryParse(fivesPlayer3.Text, out int fives);
-            int.TryParse(sixesPlayer3.Text, out int sixes);
-            sumPlayer3.Text = (aces + twos + threes + fours + fives + sixes).ToString();
-            int.TryParse(sumPlayer3.Text, out int sum);
+            int sum = 0;
 
-            if(sum >= 84)
+            foreach(TextBox textbox in pointsPlayer3.Children.OfType<TextBox>())
             {
-                bonusPlayer3.Text = "50";
+                int.TryParse(textbox.Text, out int points);
+                if(textbox == acesPlayer3 || textbox == twosPlayer3 || textbox == threesPlayer3 || textbox == foursPlayer3 || textbox == fivesPlayer3 || textbox == sixesPlayer3)
+                {
+                    sum += points;
+                    if(sum >= 84)
+                    {
+                        bonusPlayer2.Text = "50";
+                    }
+                    else
+                    {
+                        bonusPlayer2.Text = "";
+                    }
+                }
+                if(textbox != sumPlayer3 && textbox != totalPointsPlayer3)
+                {
+                    totalPoints += points;
+                }
             }
-            else
-            {
-                bonusPlayer3.Text = "";
-            }
-
-            int.TryParse(bonusPlayer3.Text, out int bonus);
-            int.TryParse(onePairPlayer3.Text, out int onePair);
-            int.TryParse(twoPairsPlayer3.Text, out int twoPairs);
-            int.TryParse(threePairsPlayer3.Text, out int threePairs);
-            int.TryParse(threeOfAKindPlayer3.Text, out int threeOfAKind);
-            int.TryParse(fourOfAKindPlayer3.Text, out int fourOfAKind);
-            int.TryParse(twoXThreeOfAKindPlayer3.Text, out int twoXThreeOfAKind);
-            int.TryParse(smallStraightPlayer3.Text, out int smallStraight);
-            int.TryParse(largeStraightPlayer3.Text, out int largeStraight);
-            int.TryParse(royalStraightPlayer3.Text, out int royalStraight);
-            int.TryParse(fullHousePlayer3.Text, out int fullHouse);
-            int.TryParse(chancePlayer3.Text, out int chance);
-            int.TryParse(yatzyPlayer3.Text, out int yatzy);
-            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
-                twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
+            sumPlayer3.Text = sum.ToString();
             totalPointsPlayer3.Text = totalPoints.ToString();
         }
 
         private void buttonCalculatePointsP4_Click(object sender, RoutedEventArgs e)
         {
             int totalPoints = 0;
-            int.TryParse(acesPlayer4.Text, out int aces);
-            int.TryParse(twosPlayer4.Text, out int twos);
-            int.TryParse(threesPlayer4.Text, out int threes);
-            int.TryParse(foursPlayer4.Text, out int fours);
-            int.TryParse(fivesPlayer4.Text, out int fives);
-            int.TryParse(sixesPlayer4.Text, out int sixes);
-            sumPlayer4.Text = (aces + twos + threes + fours + fives + sixes).ToString();
-            int.TryParse(sumPlayer4.Text, out int sum);
+            int sum = 0;
 
-            if(sum >= 84)
+            foreach(TextBox textbox in pointsPlayer4.Children.OfType<TextBox>())
             {
-                bonusPlayer4.Text = "50";
+                int.TryParse(textbox.Text, out int points);
+                if(textbox == acesPlayer4 || textbox == twosPlayer4 || textbox == threesPlayer4 || textbox == foursPlayer4 || textbox == fivesPlayer4 || textbox == sixesPlayer4)
+                {
+                    sum += points;
+                    if(sum >= 84)
+                    {
+                        bonusPlayer4.Text = "50";
+                    }
+                    else
+                    {
+                        bonusPlayer4.Text = "";
+                    }
+                }
+                if(textbox != sumPlayer4 && textbox != totalPointsPlayer4)
+                {
+                    totalPoints += points;
+                }
             }
-            else
-            {
-                bonusPlayer4.Text = "";
-            }
-
-            int.TryParse(bonusPlayer4.Text, out int bonus);
-            int.TryParse(onePairPlayer4.Text, out int onePair);
-            int.TryParse(twoPairsPlayer4.Text, out int twoPairs);
-            int.TryParse(threePairsPlayer4.Text, out int threePairs);
-            int.TryParse(threeOfAKindPlayer4.Text, out int threeOfAKind);
-            int.TryParse(fourOfAKindPlayer4.Text, out int fourOfAKind);
-            int.TryParse(twoXThreeOfAKindPlayer4.Text, out int twoXThreeOfAKind);
-            int.TryParse(smallStraightPlayer4.Text, out int smallStraight);
-            int.TryParse(largeStraightPlayer4.Text, out int largeStraight);
-            int.TryParse(royalStraightPlayer4.Text, out int royalStraight);
-            int.TryParse(fullHousePlayer4.Text, out int fullHouse);
-            int.TryParse(chancePlayer4.Text, out int chance);
-            int.TryParse(yatzyPlayer4.Text, out int yatzy);
-            totalPoints = (sum + bonus + onePair + twoPairs + threePairs + threeOfAKind + fourOfAKind +
-                twoXThreeOfAKind + smallStraight + largeStraight + royalStraight + fullHouse + chance + yatzy);
+            sumPlayer4.Text = sum.ToString();
             totalPointsPlayer4.Text = totalPoints.ToString();
         }
 
-        private void buttonNullifyScoreBlock_Click(object sender, RoutedEventArgs e)
+        private void buttonStartNewGame_Click(object sender, RoutedEventArgs e)
         {
             foreach(TextBox textBox in gridScoreBlock.Children.OfType<TextBox>())
             {
@@ -276,13 +239,19 @@ namespace Yatzy
                     textBox.Text = "";
                 }
             }
+            menuBorder.BorderThickness = new Thickness(2);
+            menu.Visibility = Visibility.Visible;
+            gridYatzy.IsEnabled = false;
+            rounds = 0;
+            numberOfPlayers = 0;
+            playerNamesTypedIn = 0;
         }
 
         private void ComboBoxSelectNoUfPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             startGame.IsEnabled = true;
         }
-        int numberOfPlayers;
+
         private void startGame_Click(object sender, RoutedEventArgs e)
         {
 
@@ -311,11 +280,12 @@ namespace Yatzy
                 playerNameMenu.Visibility = Visibility.Visible;
             }
         }
-        int playerNamesTypedIn = 0;
+
         private void buttonPlayerNameInput_Click(object sender, RoutedEventArgs e)
         {
             if(playerNamesTypedIn == 0)
             {
+                textBlockPlayerNumber.Text = "Indtast spiller 1's navn:";
                 if(playerNameInput.Text != "")
                 {
                     player1Name.Text = playerNameInput.Text;
@@ -382,8 +352,7 @@ namespace Yatzy
             }
         }
 
-        int currPlayerTurn = 1;
-        int rounds = 0;
+
         private void buttonEndTurn_Click(object sender, RoutedEventArgs e)
         {
             diceRolls = 0;
