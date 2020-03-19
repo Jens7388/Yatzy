@@ -403,7 +403,7 @@ namespace Yatzy
             }
             else
             {
-                if(rounds <= 18)
+                if(rounds < 17)
                 {
                     currPlayerTurn = 1;
                     textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
