@@ -122,7 +122,7 @@ namespace Yatzy
             foreach(TextBox textbox in pointsPlayer1.Children.OfType<TextBox>())
             {
                 int.TryParse(textbox.Text, out int points);
-                if(textbox == acesPlayer1 || textbox == twosPlayer1 || textbox == threesPlayer1 || textbox == foursPlayer1 || textbox == fivesPlayer1 || textbox == sixesPlayer1) 
+                if(textbox == acesPlayer1 || textbox == twosPlayer1 || textbox == threesPlayer1 || textbox == foursPlayer1 || textbox == fivesPlayer1 || textbox == sixesPlayer1)
                 {
                     sum += points;
                     if(sum >= 84)
@@ -141,6 +141,10 @@ namespace Yatzy
             }
             sumPlayer1.Text = sum.ToString();
             totalPointsPlayer1.Text = totalPoints.ToString();
+            if(rounds == 17)
+            {
+                CheckWinner();
+            }
         }
 
         private void buttonCalculatePointsP2_Click(object sender, RoutedEventArgs e)
@@ -170,6 +174,10 @@ namespace Yatzy
             }
             sumPlayer2.Text = sum.ToString();
             totalPointsPlayer2.Text = totalPoints.ToString();
+            if(rounds == 17)
+            {
+                CheckWinner();
+            }
         }
 
         private void buttonCalculatePointsP3_Click(object sender, RoutedEventArgs e)
@@ -185,11 +193,11 @@ namespace Yatzy
                     sum += points;
                     if(sum >= 84)
                     {
-                        bonusPlayer2.Text = "50";
+                        bonusPlayer3.Text = "50";
                     }
                     else
                     {
-                        bonusPlayer2.Text = "";
+                        bonusPlayer3.Text = "";
                     }
                 }
                 if(textbox != sumPlayer3 && textbox != totalPointsPlayer3)
@@ -199,6 +207,10 @@ namespace Yatzy
             }
             sumPlayer3.Text = sum.ToString();
             totalPointsPlayer3.Text = totalPoints.ToString();
+            if(rounds == 17)
+            {
+                CheckWinner();
+            }
         }
 
         private void buttonCalculatePointsP4_Click(object sender, RoutedEventArgs e)
@@ -228,6 +240,10 @@ namespace Yatzy
             }
             sumPlayer4.Text = sum.ToString();
             totalPointsPlayer4.Text = totalPoints.ToString();
+            if(rounds == 17) 
+            {
+                CheckWinner();
+            }
         }
 
         private void buttonStartNewGame_Click(object sender, RoutedEventArgs e)
@@ -416,6 +432,79 @@ namespace Yatzy
                     pointsPlayer2.IsEnabled = false;
                     pointsPlayer3.IsEnabled = false;
                     pointsPlayer4.IsEnabled = false;
+                }
+            }
+        }
+        private void CheckWinner()
+        {
+            int.TryParse(totalPointsPlayer1.Text, out int player1points);
+            int.TryParse(totalPointsPlayer2.Text, out int player2points);
+            int.TryParse(totalPointsPlayer3.Text, out int player3points);
+            int.TryParse(totalPointsPlayer4.Text, out int player4points);
+            if(numberOfPlayers == 2)
+            {
+                if(player1points != 0 && player2points != 0)
+                {
+                    if(player1points > player2points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player1Name.Text} har vundet!";
+                    }
+                    else if(player2points > player1points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player2Name.Text} har vundet!";
+                    }
+                    else
+                    {
+                        textBlockCurrentTurn.Text = "Spillet er uafgjort!";
+                    }
+                }
+            }
+            else if(numberOfPlayers == 3) 
+            {
+                if(player1points != 0 && player2points != 0 && player3points != 0)
+                {
+                    if(player1points > player2points && player1points > player3points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player1Name.Text} har vundet!";
+                    }
+                    else if(player2points > player1points && player2points > player3points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player2Name.Text} har vundet!";
+                    }
+                    else if(player3points > player1points && player3points > player2points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player3Name.Text} har vundet!";
+                    }
+                    else
+                    {
+                        textBlockCurrentTurn.Text = "Spillet er uafgjort!";
+                    }
+                }
+            }
+            else if(numberOfPlayers == 4)
+            {
+                if(player1points != 0 && player2points != 0 && player3points != 0 && player4points != 0)
+                {
+                    if(player1points > player2points && player1points > player3points && player1points > player4points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player1Name.Text} har vundet!";
+                    }
+                    else if(player2points > player1points && player2points > player3points && player2points > player4points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player2Name.Text} har vundet!";
+                    }
+                    else if(player3points > player1points && player3points > player2points && player3points > player4points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player3Name.Text} har vundet!";
+                    }
+                    else if(player4points > player1points && player4points > player2points && player4points > player3points)
+                    {
+                        textBlockCurrentTurn.Text = $"{player4Name.Text} har vundet!";
+                    }
+                    else
+                    {
+                        textBlockCurrentTurn.Text = "Spillet er uafgjort!";
+                    }
                 }
             }
         }
