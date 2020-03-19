@@ -241,7 +241,19 @@ namespace Yatzy
             }
             menuBorder.BorderThickness = new Thickness(2);
             menu.Visibility = Visibility.Visible;
+            textBlockCurrentTurn.Text = "";
+            player1Name.Text = "Spiller 1";
+            player2Name.Text = "Spiller 2";
+            player3Name.Text = "Spiller 3";
+            player4Name.Text = "Spiller 4";
             gridYatzy.IsEnabled = false;
+            buttonRollDices.IsEnabled = true;
+            buttonEndTurn.IsEnabled = true;
+            pointsPlayer1.IsEnabled = true;
+            pointsPlayer2.IsEnabled = true;
+            pointsPlayer3.IsEnabled = true;
+            pointsPlayer4.IsEnabled = true;
+            diceRolls = 0;
             rounds = 0;
             numberOfPlayers = 0;
             playerNamesTypedIn = 0;
@@ -315,6 +327,9 @@ namespace Yatzy
                         playerNameMenu.Visibility = Visibility.Hidden;
                         gridYatzy.IsEnabled = true;
                         textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+                        pointsPlayer2.IsEnabled = false;
+                        pointsPlayer3.IsEnabled = false;
+                        pointsPlayer4.IsEnabled = false;
                     }
                 }
             }
@@ -340,6 +355,9 @@ namespace Yatzy
                         playerNameMenu.Visibility = Visibility.Hidden;
                         gridYatzy.IsEnabled = true;
                         textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+                        pointsPlayer2.IsEnabled = false;
+                        pointsPlayer3.IsEnabled = false;
+                        pointsPlayer4.IsEnabled = false;
                     }
                 }
             }
@@ -349,6 +367,9 @@ namespace Yatzy
                 playerNameMenu.Visibility = Visibility.Hidden;
                 gridYatzy.IsEnabled = true;
                 textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+                pointsPlayer2.IsEnabled = false;
+                pointsPlayer3.IsEnabled = false;
+                pointsPlayer4.IsEnabled = false;
             }
         }
 
@@ -361,14 +382,20 @@ namespace Yatzy
             if(currPlayerTurn == 2)
             {
                 textBlockCurrentTurn.Text = $"{player2Name.Text}'s tur";
+                pointsPlayer1.IsEnabled = false;
+                pointsPlayer2.IsEnabled = true;
             }
             else if(numberOfPlayers >= 3 && currPlayerTurn == 3)
             {
                 textBlockCurrentTurn.Text = $"{player3Name.Text}'s tur";
+                pointsPlayer2.IsEnabled = false;
+                pointsPlayer3.IsEnabled = true;
             }
             else if(numberOfPlayers == 4 && currPlayerTurn == 4)
             {
                 textBlockCurrentTurn.Text = $"{player4Name.Text}'s tur";
+                pointsPlayer3.IsEnabled = false;
+                pointsPlayer4.IsEnabled = true;
             }
             else
             {
@@ -376,6 +403,8 @@ namespace Yatzy
                 {
                     currPlayerTurn = 1;
                     textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+                    pointsPlayer4.IsEnabled = false;
+                    pointsPlayer1.IsEnabled = true;
                     rounds++;
                 }
                 else
@@ -383,6 +412,10 @@ namespace Yatzy
                     textBlockCurrentTurn.Text = "Spillet er slut. Udregn jeres point";
                     buttonRollDices.IsEnabled = false;
                     buttonEndTurn.IsEnabled = false;
+                    pointsPlayer1.IsEnabled = false;
+                    pointsPlayer2.IsEnabled = false;
+                    pointsPlayer3.IsEnabled = false;
+                    pointsPlayer4.IsEnabled = false;
                 }
             }
         }
