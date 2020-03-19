@@ -28,8 +28,12 @@ namespace Yatzy
         int diceRolls = 0;
         private void buttonRollDices_Click(object sender, RoutedEventArgs e)
         {
-            diceRolls++;            
-            if(diceRolls < 4)
+            diceRolls++;
+            if(diceRolls >= 4 && numberOfPlayers > 0)
+            {
+                MessageBox.Show("Du må ikke slå terningerne mere end 3 gange! Afslut din tur.");
+            }
+            else
             {
                 RollDice(dice1, checkBox1);
                 RollDice(dice2, checkBox2);
@@ -37,12 +41,16 @@ namespace Yatzy
                 RollDice(dice4, checkBox4);
                 RollDice(dice5, checkBox5);
                 RollDice(dice6, checkBox6);
-                buttonEndTurn.IsEnabled = true;
+                if(numberOfPlayers > 0)
+                {
+                    buttonEndTurn.IsEnabled = true;
+                }
+                else
+                {
+                    buttonEndTurn.IsEnabled = false;
+                }
             }
-            else
-            {
-                MessageBox.Show("Du må ikke slå terningerne mere end 3 gange! Afslut din tur.");
-            }
+
         }
         private void RollDice(Rectangle dice, CheckBox checkBox)
         {
@@ -375,27 +383,38 @@ namespace Yatzy
         }
 
         int currPlayerTurn = 1;
+        int rounds = 0;
         private void buttonEndTurn_Click(object sender, RoutedEventArgs e)
         {
             diceRolls = 0;
             buttonEndTurn.IsEnabled = false;
             currPlayerTurn++;
-            if(currPlayerTurn == 2) 
+            if(currPlayerTurn == 2)
             {
                 textBlockCurrentTurn.Text = $"{player2Name.Text}'s tur";
             }
-            else if(numberOfPlayers >= 3 && currPlayerTurn == 3) 
+            else if(numberOfPlayers >= 3 && currPlayerTurn == 3)
             {
                 textBlockCurrentTurn.Text = $"{player3Name.Text}'s tur";
             }
-            else if(numberOfPlayers == 4 && currPlayerTurn == 4) 
+            else if(numberOfPlayers == 4 && currPlayerTurn == 4)
             {
                 textBlockCurrentTurn.Text = $"{player4Name.Text}'s tur";
             }
             else
-            { 
-                currPlayerTurn = 1;
-                textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+            {
+                if(rounds <= 18)
+                {
+                    currPlayerTurn = 1;
+                    textBlockCurrentTurn.Text = $"{player1Name.Text}'s tur";
+                    rounds++;
+                }
+                else
+                {
+                    textBlockCurrentTurn.Text = "Spillet er slut. Udregn jeres point";
+                    buttonRollDices.IsEnabled = false;
+                    buttonEndTurn.IsEnabled = false;
+                }
             }
         }
     }
