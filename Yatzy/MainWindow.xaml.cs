@@ -248,12 +248,21 @@ namespace Yatzy
 
         private void buttonStartNewGame_Click(object sender, RoutedEventArgs e)
         {
-            foreach(TextBox textBox in gridScoreBlock.Children.OfType<TextBox>())
+            foreach(TextBox textBox in pointsPlayer1.Children.OfType<TextBox>())
             {
-                if(((SolidColorBrush)textBox.Background).Color != Colors.LightGray)
-                {
-                    textBox.Text = "";
-                }
+              textBox.Text = "";
+            }
+            foreach(TextBox textBox in pointsPlayer2.Children.OfType<TextBox>())
+            {
+                textBox.Text = "";
+            }
+            foreach(TextBox textBox in pointsPlayer3.Children.OfType<TextBox>())
+            {
+                textBox.Text = "";
+            }
+            foreach(TextBox textBox in pointsPlayer4.Children.OfType<TextBox>())
+            {
+                textBox.Text = "";
             }
             menuBorder.BorderThickness = new Thickness(2);
             menu.Visibility = Visibility.Visible;
@@ -269,7 +278,9 @@ namespace Yatzy
             pointsPlayer2.IsEnabled = true;
             pointsPlayer3.IsEnabled = true;
             pointsPlayer4.IsEnabled = true;
+            buttonEndTurn.IsEnabled = false;
             diceRolls = 0;
+            currPlayerTurn = 1;
             rounds = 0;
             numberOfPlayers = 0;
             playerNamesTypedIn = 0;
@@ -288,6 +299,7 @@ namespace Yatzy
                 menuBorder.BorderThickness = new Thickness(0);
                 menu.Visibility = Visibility.Hidden;
                 gridYatzy.IsEnabled = true;
+
             }
             else if(ComboBoxSelectNoUfPlayers.SelectedItem == twoPlayers)
             {
@@ -307,6 +319,8 @@ namespace Yatzy
                 menu.Visibility = Visibility.Hidden;
                 playerNameMenu.Visibility = Visibility.Visible;
             }
+            textBlockPlayerNumber.Text = "Indtast spiller 1's navn:";
+            playerNameInput.Text = "";
         }
 
         private void buttonPlayerNameInput_Click(object sender, RoutedEventArgs e)

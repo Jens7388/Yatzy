@@ -13,7 +13,7 @@
                  Height="160"
                  Width="180"
                  BorderThickness="2"
-                 BorderBrush="Black">
+                 BorderBrush="Black" >
             <StackPanel Height="150"
                         x:Name="menu"
                         Width="170">
