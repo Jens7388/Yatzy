@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Yatzy
@@ -403,12 +396,12 @@ namespace Yatzy
             }
         }
 
-
         private void buttonEndTurn_Click(object sender, RoutedEventArgs e)
         {
             diceRolls = 0;
             buttonEndTurn.IsEnabled = false;
             currPlayerTurn++;
+
             if(currPlayerTurn == 2)
             {
                 textBlockCurrentTurn.Text = $"{player2Name.Text}'s tur";
@@ -455,6 +448,7 @@ namespace Yatzy
             int.TryParse(totalPointsPlayer2.Text, out int player2points);
             int.TryParse(totalPointsPlayer3.Text, out int player3points);
             int.TryParse(totalPointsPlayer4.Text, out int player4points);
+
             if(numberOfPlayers == 2)
             {
                 if(player1points != 0 && player2points != 0)
